@@ -1,15 +1,16 @@
-import { Grid, Card } from '@nextui-org/react';
 import { useRouter } from 'next/router';
-import React from 'react';
+import { Grid, Card } from '@nextui-org/react';
+
+import { SmallPokemon } from '../../interfaces/pokemon-list';
 
 interface Props {
-  pokemonID: number;
+  pokemon: SmallPokemon;
 }
 
-export const FavoriteCardPokemon = ({ pokemonID: id }: Props) => {
+export const FavoriteCardPokemon = ({ pokemon }: Props) => {
   const router = useRouter();
 
-  const onFavoriteClicked = () => router.push(`/pokemon/${id}`);
+  const onFavoriteClicked = () => router.push(`/name/${pokemon.name}`);
 
   return (
     <Grid xs={6} sm={3} md={2} xl={1}>
@@ -20,7 +21,7 @@ export const FavoriteCardPokemon = ({ pokemonID: id }: Props) => {
         onPress={onFavoriteClicked}
       >
         <Card.Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
           width={'100%'}
           height={140}
         />

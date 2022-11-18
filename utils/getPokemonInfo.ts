@@ -6,7 +6,14 @@ export const getPokemonInfo = async (search: string) => {
     data: {
       id,
       name,
-      sprites: { front_default, back_default, front_shiny, back_shiny, other },
+      sprites: {
+        front_default,
+        back_default,
+        front_shiny,
+        back_shiny,
+        versions,
+        other,
+      },
     },
   } = await pokeApi.get<Pokemon>(`/pokemon/${search}`);
 
@@ -18,6 +25,13 @@ export const getPokemonInfo = async (search: string) => {
       back_default,
       front_shiny,
       back_shiny,
+      versions: {
+        ['generation-vii']: {
+          icons: {
+            front_default: versions?.['generation-vii'].icons.front_default,
+          },
+        },
+      },
       other: {
         dream_world: {
           front_default: other?.dream_world?.front_default,

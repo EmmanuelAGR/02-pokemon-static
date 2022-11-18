@@ -24,7 +24,7 @@ export const PokemonByNamePage = ({ pokemon }: Props) => {
   );
 
   const onToggleFavorite = () => {
-    localFavorites.toggleFavorite(pokemon.id);
+    localFavorites.toggleFavorite(pokemon);
     setIsInFavorites(!isInFavorites);
 
     if (isInFavorites) return;
@@ -42,7 +42,10 @@ export const PokemonByNamePage = ({ pokemon }: Props) => {
   };
 
   return (
-    <Layout title='Algún Pokemon' img={ pokemon.sprites.other?.['official-artwork'].front_default }>
+    <Layout
+      title='Algún Pokemon'
+      img={pokemon.sprites.other?.['official-artwork'].front_default}
+    >
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
         <Grid xs={12} sm={4}>
           <Card isHoverable css={{ padding: '30px' }}>
@@ -134,7 +137,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      pokemon: await getPokemonInfo( name ),
+      pokemon: await getPokemonInfo(name),
     },
   };
 };

@@ -8,7 +8,7 @@ import confetti from 'canvas-confetti';
 import { getPokemonInfo } from '../../utils';
 import { Layout } from '../../components/layouts';
 import localFavorites from '../../utils/localFavorites';
-import { Pokemon } from '../../interfaces';
+import { Pokemon } from '../../interfaces/pokemon-full';
 
 interface Props {
   pokemon: Pokemon;
@@ -23,7 +23,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   );
 
   const onToggleFavorite = () => {
-    localFavorites.toggleFavorite(pokemon.id);
+    localFavorites.toggleFavorite(pokemon);
     setIsInFavorites(!isInFavorites);
 
     if (isInFavorites) return;
@@ -143,7 +143,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      pokemon: await getPokemonInfo( id ),
+      pokemon: await getPokemonInfo(id),
     },
   };
 };

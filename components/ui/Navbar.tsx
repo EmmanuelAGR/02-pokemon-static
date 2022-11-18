@@ -25,16 +25,20 @@ export const Navbar = () => {
         height={70}
       />
 
-      <NextLink href="/" passHref>
-        <Link 
-          style={{ 
-            display: 'flex', 
-            flexDirection: 'row', 
-            alignItems: 'center', 
-            justifyContent: 'start' 
+      <NextLink href='/' passHref>
+        <Link
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'start',
           }}
         >
-          <Text color='yellow' css={{ fontStyle: 'italic', WebkitTextStroke: '2px #3b83bd' }} h1>
+          <Text
+            color='yellow'
+            css={{ fontStyle: 'italic', WebkitTextStroke: '2px #3b83bd' }}
+            h1
+          >
             P
           </Text>
           <Text color='yellow' css={{ WebkitTextStroke: '1px #3b83bd' }} h3>
