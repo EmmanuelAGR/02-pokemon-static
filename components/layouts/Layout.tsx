@@ -24,8 +24,8 @@ export const Layout: FC<Props>= ({ children, title, img = '' }) => {
         <meta property="og:description" content={`Esta es la página sobre ${ title }`} />
         {
           img?.length >  0
-          ? <meta property="og:image1" content={ img } />
-          : <meta property="og:image2" content={`${ origin }/_next/image?url=%2Fimgs%2Fbanner.png&w=640&q=75`} />
+          ? <meta property="og:image" content={ img } />
+          : <meta property="og:image" content={`${ origin }/_next/image?url=%2Fimgs%2Fbanner.png&w=640&q=75`} />
         }
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
