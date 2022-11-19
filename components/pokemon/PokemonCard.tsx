@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-import { Card, Grid, Row, Text } from '@nextui-org/react';
+import { Card, Grid, Row, styled, Text } from '@nextui-org/react';
 
 import { SmallPokemon } from '../../interfaces';
 
@@ -21,7 +21,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Grid xs={6} sm={3} md={2} xl={1} key={id}>
+    <Grid xs={12} sm={3} md={2} xl={1} key={id}>
       <Card isHoverable isPressable onPress={onPress}>
         <Card.Body css={{ p: 1 }}>
           <Card.Image src={img} width='100%' height={140} />
