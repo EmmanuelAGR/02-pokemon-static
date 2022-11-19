@@ -15,10 +15,10 @@ const toggleFavorite = (pokemon: Pokemon): void => {
 };
 
 const existInFavorites = (id: number): boolean => {
-  const favorites: number[] = JSON.parse(
+  const favorites: SmallPokemon[] = JSON.parse(
     localStorage.getItem('favorites') || '[]'
   );
-  return favorites.includes(id);
+  return favorites.find(favorite => favorite.id === id) ? true : false;
 };
 
 const pokemons = (): SmallPokemon[] =>
