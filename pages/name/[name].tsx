@@ -43,7 +43,7 @@ export const PokemonByNamePage = ({ pokemon }: Props) => {
 
   return (
     <Layout
-      title='Algún Pokemon'
+      title={pokemon.name}
       img={pokemon.sprites.other?.['official-artwork'].front_default}
     >
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>

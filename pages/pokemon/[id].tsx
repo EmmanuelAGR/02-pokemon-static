@@ -41,7 +41,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   };
 
   return (
-    <Layout title='Algún Pokemon'>
+    <Layout title={pokemon.name}>
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
         <Grid xs={12} sm={4}>
           <Card isHoverable css={{ padding: '30px' }}>
@@ -134,7 +134,8 @@ export const getStaticPaths: GetStaticPaths = async ctx => {
     //     params: { id: '3' }
     //   },
     // ],
-    fallback: false,
+    // fallback: false,
+    fallback: 'blocking',
   };
 };
 
