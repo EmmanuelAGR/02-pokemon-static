@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 
 import { Navbar } from '../ui';
+import { capitalize } from '../../utils';
 
 interface Props {
   title?: string;
@@ -13,6 +14,8 @@ interface Props {
 const origin = (typeof window === 'undefined') ? '' : window.location.origin
 
 export const Layout: FC<Props>= ({ children, title, img = '' }) => {
+  title = title ? capitalize(title) : '';
+  
   return (
     <>
       <Head>

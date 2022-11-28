@@ -5,10 +5,10 @@ import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
 
 import confetti from 'canvas-confetti';
 
-import { getPokemonInfo } from '../../utils';
 import { Layout } from '../../components/layouts';
-import localFavorites from '../../utils/localFavorites';
 import { Pokemon } from '../../interfaces/pokemon-full';
+import { getPokemonInfo } from '../../utils';
+import localFavorites from '../../utils/localFavorites';
 
 interface Props {
   pokemon: Pokemon;
@@ -142,11 +142,22 @@ export const getStaticPaths: GetStaticPaths = async ctx => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as { id: string };
 
+  const pokemon = await getPokemonInfo(id);
+
+  if (!pokemon) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
-      pokemon: await getPokemonInfo(id),
+      pokemon,
     },
-    revalidate: 86400 // 60 * 60 * 24
+    revalidate: 86400, // 60 * 60 * 24
   };
 };
 
